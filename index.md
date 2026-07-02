@@ -12,14 +12,34 @@ hero:
     - theme: alt
       text: 评审入口
       link: /review/
+    - theme: alt
+      text: 在线演示
+      link: /demos/
 
 features:
-  - title: 带量纲的数量计算
-    details: 数值始终携带单位，长度加时间这类错误会被显式拒绝，而不是悄悄产生错误结果。
-  - title: 实用单位换算
-    details: 覆盖 SI、常见领域单位、扩展维度、仿射温度和对数单位，兼容量纲之间可以保持物理量不变地换算。
-  - title: Parser、Formatter 与 Catalog
-    details: 支持符号解析、单位表达式解析，以及面向日志、界面和文档的数量格式化输出。
-  - title: 可展示的生态工具
-    details: 单位换算 CLI、公式计算 CLI 与浏览器演示都建立在同一套领域库之上。
+  - title: 量纲错误不再静默通过
+    details: 数值始终携带单位；长度加时间、质量直接换成温度这类错误会被运行时检查拒绝。
+  - title: 单位换算和复合单位自动推导
+    details: 同量纲换算保持物理量不变，乘法、除法和整数幂会自动组合单位，例如 m/s²、N、J。
+  - title: 面向真实输入的 Parser 与 Catalog
+    details: 通过不可变 Catalog 解析 m/s^2、9.8 m/s^2、N、Hz 等文本输入，并返回可分类处理的错误。
+  - title: 温度和 dB 不混进普通单位核心
+    details: 仿射温度点、温度差、对数 level 与 gain 分层处理，避免把非线性尺度当作普通比例单位。
+  - title: 从库到工具的生态闭环
+    details: LunarFormulas、单位换算 CLI、公式计算 CLI、两个 Web UI demo 都复用同一套单位语义。
+  - title: 适合评审快速验证
+    details: 站点提供快速开始、案例、设计说明、测试入口和 OSC2026 评审入口，便于集中检查完成度。
 ---
+
+## 适用场景
+
+LunarUnits 适合工程计算、科学计算、教学示例和数据处理代码中那些“数值本身不够表达语义”的位置。项目采用运行时量纲检查，在 MoonBit 生态中提供可用、可测试、可扩展的单位安全基础库。
+
+## 生态入口
+
+- 核心库：[LunarUnits](https://github.com/FrozenLemonTee/LunarUnits)
+- 公式库：[LunarFormulas](https://github.com/FrozenLemonTee/LunarFormulas)
+- 单位换算 CLI：[units-converter](https://github.com/FrozenLemonTee/units-converter)
+- 公式计算 CLI：[formulas-calculator](https://github.com/FrozenLemonTee/formulas-calculator)
+- 单位换算 Web UI：[units-converter-web](https://github.com/FrozenLemonTee/units-converter-web)
+- 公式计算 Web UI：[formulas-calculator-web](https://github.com/FrozenLemonTee/formulas-calculator-web)
