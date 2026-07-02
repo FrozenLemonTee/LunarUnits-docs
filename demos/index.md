@@ -5,4 +5,7 @@
 - 单位换算：`/demos/units-converter/`
 - 公式计算：`/demos/formulas-calculator/`
 
-这些 demo 目录会在文档部署流程中填充。
+对应项目仓库：
+
+- [units-converter-web](https://github.com/FrozenLemonTee/units-converter-web)
+- [formulas-calculator-web](https://github.com/FrozenLemonTee/formulas-calculator-web)
