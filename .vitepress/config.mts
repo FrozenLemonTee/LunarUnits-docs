@@ -1,0 +1,72 @@
+import { defineConfig } from "vitepress"
+
+export default defineConfig({
+  lang: "zh-CN",
+  title: "LunarUnits",
+  description: "面向 MoonBit 的运行时量纲检查与单位计算基础库。",
+  base: "/LunarUnits-docs/",
+  cleanUrls: true,
+  themeConfig: {
+    nav: [
+      { text: "指南", link: "/guide/getting-started" },
+      { text: "案例", link: "/cookbook/" },
+      { text: "设计", link: "/design/runtime-dimensional-checking" },
+      { text: "生态", link: "/ecosystem/" },
+      { text: "评审", link: "/review/" },
+      { text: "演示", link: "/demos/" }
+    ],
+    sidebar: [
+      {
+        text: "指南",
+        items: [
+          { text: "快速开始", link: "/guide/getting-started" },
+          { text: "数量与单位", link: "/guide/quantities-and-units" },
+          { text: "换算与格式化", link: "/guide/conversion-and-formatting" },
+          { text: "Parser 与 Catalog", link: "/guide/parser-and-catalog" },
+          { text: "仿射与对数单位", link: "/guide/affine-and-logarithmic" }
+        ]
+      },
+      {
+        text: "案例",
+        items: [
+          { text: "概览", link: "/cookbook/" },
+          { text: "力矩与能量", link: "/cookbook/torque-vs-energy" },
+          { text: "显热计算", link: "/cookbook/sensible-heat" }
+        ]
+      },
+      {
+        text: "设计",
+        items: [
+          { text: "运行时量纲检查", link: "/design/runtime-dimensional-checking" },
+          { text: "角度", link: "/design/angle" },
+          { text: "仿射温度", link: "/design/affine-temperature" },
+          { text: "对数单位", link: "/design/logarithmic-units" },
+          { text: "Catalog 边界", link: "/design/catalog-boundary" }
+        ]
+      },
+      {
+        text: "生态",
+        items: [
+          { text: "概览", link: "/ecosystem/" },
+          { text: "CLI", link: "/ecosystem/cli" },
+          { text: "Web UI", link: "/ecosystem/webui" },
+          { text: "公式计算", link: "/ecosystem/formulas" }
+        ]
+      },
+      {
+        text: "评审",
+        items: [
+          { text: "入口", link: "/review/" },
+          { text: "进度", link: "/review/progress" },
+          { text: "测试", link: "/review/testing" }
+        ]
+      }
+    ],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/FrozenLemonTee/LunarUnits" }
+    ],
+    search: {
+      provider: "local"
+    }
+  }
+})
