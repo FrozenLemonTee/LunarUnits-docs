@@ -30,6 +30,11 @@ export default defineConfig({
         text: "案例",
         items: [
           { text: "概览", link: "/cookbook/" },
+          { text: "基础力学与换算", link: "/cookbook/mechanics-and-conversion" },
+          { text: "扩展维度", link: "/cookbook/extension-dimensions" },
+          { text: "货币、计数与费率", link: "/cookbook/money-count-rate" },
+          { text: "Parser 与 Formatter", link: "/cookbook/parser-and-formatting" },
+          { text: "仿射与对数尺度", link: "/cookbook/affine-and-logarithmic" },
           { text: "力矩与能量", link: "/cookbook/torque-vs-energy" },
           { text: "显热计算", link: "/cookbook/sensible-heat" }
         ]
