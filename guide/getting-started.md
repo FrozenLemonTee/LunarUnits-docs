@@ -1,3 +1,9 @@
+---
+next:
+  text: 数量与单位
+  link: /guide/quantities-and-units
+---
+
 # 快速开始
 
 这一页给出 LunarUnits 的最小使用路径：安装、导入、构造数量、单位换算、量纲错误处理，以及文本解析。
