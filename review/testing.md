@@ -9,16 +9,7 @@ cd LunarUnits
 moon test
 ```
 
-核心库测试覆盖：
-
-- 基础符号代数和量纲比较。
-- 单位组合、换算和格式化。
-- `Quantity` 运算、同量纲换算和不兼容量纲拒绝。
-- 扩展维度：angle、solid angle、information、currency、count。
-- 领域单位与便捷构造函数。
-- parser、catalog、preset。
-- affine 温度和 logarithmic dB/Np。
-- examples 中的可运行示例。
+覆盖范围包括基础符号代数、量纲比较、单位组合、换算、格式化、`Quantity` 运算、扩展维度、parser、catalog、affine、logarithmic 和 examples。
 
 ## 公式库与应用层
 
@@ -33,7 +24,7 @@ cd ../formulas-calculator
 moon test
 ```
 
-公式计算相关测试重点验证输入单位归一化、输出单位正确性，以及应用层不会绕过领域库的单位语义。
+这些测试验证公式输入单位归一化、输出单位正确性，以及应用层不会绕过领域库的单位语义。
 
 ## 文档站
 
@@ -43,5 +34,3 @@ npm install
 npm run docs:build
 npm audit --audit-level=high
 ```
-
-文档站使用 VitePress。构建和依赖审计命令用于确认站点内容可以发布，并且没有高危 npm audit 告警。

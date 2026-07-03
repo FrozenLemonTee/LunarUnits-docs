@@ -1,6 +1,5 @@
 # Web UI
 
-Web UI demo 在浏览器中复用 CLI 工具背后的同一套领域逻辑。
+Web UI demo 在浏览器中复用 CLI 工具背后的同一套领域逻辑。它们不重新实现单位换算或公式计算规则，而是把交互、默认输入、错误展示和结果展示放在前端层。
 
-- 单位换算 demo：`/demos/units-converter/`
-- 公式计算 demo：`/demos/formulas-calculator/`
+在线访问入口集中放在 [演示](../demos/) 页面。
