@@ -1,19 +1,28 @@
 # 生态
 
-LunarUnits 生态围绕同一套单位语义展开：核心库负责数量与单位，公式库负责公式求值，CLI 和 Web UI 负责不同使用入口。
+LunarUnits 生态按内容分为三条线：领域公式库、单位转换工具、公式计算工具。三者共享同一套单位语义，但面向不同使用场景。
 
 ## 分层关系
 
 ```text
 LunarUnits
-  └─ LunarFormulas
-      ├─ units-converter / formulas-calculator
-      └─ units-converter-web / formulas-calculator-web
+  ├─ LunarFormulas
+  ├─ units-converter
+  │   └─ units-converter-web
+  └─ formulas-calculator
+      └─ formulas-calculator-web
 ```
 
-## 入口
+## 内容分块
 
-- [CLI](./cli.md)：终端中的单位换算和公式计算。
-- [Web UI](./webui.md)：浏览器中的交互式界面。
-- [公式计算](./formulas.md)：公式库与应用层之间的边界。
-- [演示](../demos/)：在线 demo 入口。
+| 分块 | 作用 | 页面 |
+| --- | --- | --- |
+| 领域公式库 | 管理公式元数据、输入单位和输出单位，是公式计算工具的领域层。 | [领域公式库](./formulas-library.md) |
+| 单位转换 CLI/WebUI | 面向单位表达式换算，验证 parser、catalog、formatter 和单位换算能力。 | [单位转换 CLI/WebUI](./units-converter.md) |
+| 公式计算 CLI/WebUI | 面向工程公式输入，验证公式层的单位归一化和输出单位正确性。 | [公式计算 CLI/WebUI](./formulas-calculator.md) |
+
+## 设计边界
+
+- 核心库负责单位和数量语义。
+- 领域公式库负责公式定义和单位归一化。
+- CLI/WebUI 负责交互、输入解析、错误展示和结果呈现。

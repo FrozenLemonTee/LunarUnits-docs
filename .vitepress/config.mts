@@ -53,9 +53,9 @@ export default defineConfig({
         text: "生态",
         items: [
           { text: "概览", link: "/ecosystem/" },
-          { text: "CLI", link: "/ecosystem/cli" },
-          { text: "Web UI", link: "/ecosystem/webui" },
-          { text: "公式计算", link: "/ecosystem/formulas" }
+          { text: "领域公式库", link: "/ecosystem/formulas-library" },
+          { text: "单位转换 CLI/WebUI", link: "/ecosystem/units-converter" },
+          { text: "公式计算 CLI/WebUI", link: "/ecosystem/formulas-calculator" }
         ]
       },
       {
