@@ -6,7 +6,7 @@ next:
 
 # 快速开始
 
-这一页给出 LunarUnits 的最小使用路径：安装、导入、构造数量、单位换算、量纲错误处理，以及文本解析。
+本节展示 LunarUnits 的快速开始流程：安装、导入、构造数量、单位换算、量纲错误处理，以及文本解析。
 
 ## 安装
 
@@ -41,7 +41,7 @@ let speed = distance / time
 let speed_text = @quantity.format_quantity(speed) // "10 m/s"
 ```
 
-乘法和除法会组合单位。下面的例子对应牛顿第二定律：
+新的数量可以由不同量纲的已有数量通过乘法、除法操作组合自动得出。下面的例子展示了牛顿第二定律：
 
 ```text
 let mass = @quantity.Quantity::new(2.0, @si.kilogram)
@@ -55,7 +55,7 @@ let force_text = @quantity.format_quantity(force) // "6 kg*m/s^2"
 
 ## 单位换算
 
-同量纲换算保持物理量不变，只改变目标单位下的数值：
+同量纲、但单位不同的数量之间换算，其量纲保持不变，只改变目标单位对应数量的数值：
 
 ```text
 let distance = @qgeometry.kilometers(2.0)
@@ -92,7 +92,7 @@ let accel_unit = @parser.parse_unit(catalog, "m/s^2")
 let g = @parser.parse_quantity(catalog, "9.8 m/s^2")
 ```
 
-解析失败不会变成未分类的 panic。可以使用 `parse_unit_opt`、`parse_quantity_opt` 这类接口让上层应用返回更友好的错误提示。
+解析失败不会产生未分类的 panic。可以使用 `parse_unit_opt`、`parse_quantity_opt` 这类接口让上层应用返回更友好的错误提示。
 
 ## 下一步
 

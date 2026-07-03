@@ -11,7 +11,7 @@
 | 货币、计数与费率 | 注入汇率、money/time、money/count、count 消去 | [货币、计数与费率](./money-count-rate.md) |
 | Parser 与 Formatter | Catalog、文本解析、ASCII/SI/LaTeX 输出 | [Parser 与 Formatter](./parser-and-formatting.md) |
 | 仿射与对数尺度 | 温度点/差值、时间点、dB level/gain | [仿射与对数尺度](./affine-and-logarithmic.md) |
-| 力矩与能量 | 相同基础量纲下的不同物理语义 | [力矩与能量](./torque-vs-energy.md) |
+| 力矩与能量 | 显式 angle 维度下的 torque * angle -> energy | [力矩与能量](./torque-vs-energy.md) |
 | 显热计算 | 公式计算生态中的单位归一化输出 | [显热计算](./sensible-heat.md) |
 
 ## 示例来源
