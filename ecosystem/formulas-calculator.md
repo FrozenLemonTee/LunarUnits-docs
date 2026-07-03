@@ -22,4 +22,4 @@
 
 - CLI 仓库：<https://github.com/FrozenLemonTee/formulas-calculator>
 - Web UI 仓库：<https://github.com/FrozenLemonTee/formulas-calculator-web>
-- 在线演示：[演示页面](../demos/)
+- 在线演示：[公式计算 WebUI](https://frozenlemontee.github.io/formulas-calculator-web/)
