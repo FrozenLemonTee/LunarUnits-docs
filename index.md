@@ -13,6 +13,9 @@ hero:
       text: 案例
       link: /cookbook/
     - theme: alt
+      text: API 文档
+      link: https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.6
+    - theme: alt
       text: 评审入口
       link: /review/
 

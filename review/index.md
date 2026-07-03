@@ -18,12 +18,12 @@
 | --- | --- |
 | 项目价值 | 显式建模单位与量纲，减少工程和科学计算中的单位错误。 |
 | 工程质量 | 核心模型、单位集合、parser、formatter、affine、logarithmic 分层清晰。 |
-| 可用性 | 支持 mooncakes 安装、领域构造函数、文本解析、格式化输出和错误分类。 |
+| 可用性 | 支持 mooncakes 安装，API 文档覆盖公开包接口，并提供领域构造函数、文本解析、格式化输出和错误分类。 |
 | 生态完整度 | 已扩展到 LunarFormulas、两个 CLI、两个 Web UI 项目。 |
 | 可验证性 | 核心库、公式库和应用层均通过 MoonBit 测试验证。 |
 
 ## 公开入口
 
 - GitHub 主仓：<https://github.com/FrozenLemonTee/LunarUnits>
-- mooncakes 包：`FrozenLemonTee/LunarUnits`
+- API 文档：<https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.6>
 - 赛事页面：<https://moonbitlang.github.io/OSC2026/>
