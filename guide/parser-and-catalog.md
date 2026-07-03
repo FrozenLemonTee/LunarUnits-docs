@@ -2,9 +2,9 @@
 
 Parser 与 Catalog 位于应用边界：命令行参数、Web 表单、配置文件和用户脚本通常只能提供字符串，而 LunarUnits 的核心计算需要 `Unit` 和 `Quantity`。Catalog 负责把符号映射到单位，Parser 负责把字符串语法转成单位表达式或数量。
 
-## Catalog 是符号表，不是单位注册中心
+## Catalog 查询和扩展
 
-Catalog 只回答“这个符号代表哪个单位”。单位是否兼容、如何换算，仍然由 `Un` 自身的量纲和比例决定。
+Catalog 提供符号到单位的查询。可以用 `lookup` 取得单位，也可以用 `contains` 检查符号是否存在。
 
 ```text
 let catalog = @preset.all()
@@ -25,7 +25,7 @@ assert_true(extended.contains("force"))
 assert_false(base.contains("force"))
 ```
 
-如果重复绑定同一个符号，后写入的绑定生效。这个规则适合在应用层做局部别名或覆盖，但公共文档和通用 CLI 应尽量避免让常见符号产生歧义。
+如果重复绑定同一个符号，后写入的绑定生效。
 
 ## Parser 支持的单位表达式
 
@@ -83,6 +83,8 @@ assert_true(@parser.parse_quantity_opt(catalog, "m/s^2") is None)
 
 CLI 和 Web UI 通常会使用抛错版本，把 `ParseError` 转成更具体的用户提示；批处理导入或表单校验则可以先用 `*_opt` 做快速过滤。
 
-## Catalog 的组织建议
+## 常见 Catalog 用法
 
-通用应用推荐使用 `@preset.all()` ，因为它覆盖内置单位包。领域应用可以基于它添加局部别名，例如 `force`、`flow` 或业务系统中的标准缩写。不要把用户输入直接变成全局可变状态；Catalog 是值，按请求、按配置或按工作区传递会更容易测试，也能避免不同模块之间的符号污染。当然，用户也可以根据自己的需要只选择使用某些部分领域的Catalog。
+通用应用可以直接使用 `@preset.all()`，它覆盖内置单位包。领域应用可以在此基础上添加局部别名，例如 `force`、`flow` 或业务系统中的标准缩写。也可以根据输入范围只组合部分领域的 Catalog。
+
+Catalog 与核心单位身份的关系可继续阅读 [Catalog 边界](../design/catalog-boundary.md)。

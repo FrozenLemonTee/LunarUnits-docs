@@ -24,9 +24,9 @@ assert_false(distance.can_to(@si.second))
 assert_true(distance.checked_to(@si.second) is None)
 ```
 
-## 目标单位也是 API 选择
+## 指定目标单位
 
-换算结果的单位由调用方指定。对于内部计算，通常保留自然产生的单位即可；对于用户输出、日志或报表，则应该在边界处换算到更熟悉的单位。
+换算结果的单位由调用方指定。内部计算通常可以保留自然产生的单位；用户输出、日志或报表可以在输出前换算到更熟悉的单位。
 
 ```text
 let speed = @qmechanics.meters_per_second(30.0)
@@ -35,7 +35,7 @@ let road_speed = speed.to(@mechanics.kilometer_per_hour)
 assert_eq(road_speed.value(), 108.0)
 ```
 
-加法和减法也遵循类似规则：结果保留左侧数量的单位。因此，当输出单位需要刻意选择时，可以将期望单位放在左侧，或在最终结果上显式调用 `to`。
+加法和减法也遵循类似规则：结果保留左侧数量的单位。因此，当输出单位需要固定时，可以将期望单位放在左侧，或在最终结果上显式调用 `to`。
 
 ```text
 let total = @qtime.hours(1.0).add(@qtime.minutes(30.0))
@@ -57,7 +57,7 @@ let acceleration = @quantity.Quantity::new(
 assert_eq(@quantity.format_quantity(acceleration), "9.8 m/s^2")
 ```
 
-默认 `format_quantity` 使用 ASCII，适合终端、日志、快照测试和不确定编码环境。
+默认 `format_quantity` 的选项为 ASCII。
 
 ## 输出风格
 
@@ -83,6 +83,6 @@ assert_eq(latex, "9.8 \\mathrm{m}/\\mathrm{s}^{2}")
 
 三种格式只影响文本，不会改变数量本身。实践中可以把计算结果一直保持为 `Quantity`，直到 CLI 输出、Web UI 渲染或文档生成时再格式化。
 
-## 与 Parser 的边界
+## 与 Parser 配合
 
-Formatter 负责写出已知数量，Parser 负责读入用户输入。不要把格式化文本当作长期存储协议；如果系统需要稳定交换数据，更好的做法是分别存储数值和单位字符串，并在读入时通过 Catalog 和 Parser 重建数量。
+Formatter 负责输出已知数量，Parser 负责读入用户输入。常见流程是：用 Parser 把字符串变成 `Quantity`，完成计算和换算后，再用 Formatter 输出文本。

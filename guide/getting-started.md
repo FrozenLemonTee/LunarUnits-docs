@@ -80,7 +80,7 @@ let duration = @quantity.Quantity::new(1.0, @si.second)
 let maybe_total = length.checked_add(duration) // None
 ```
 
-这种设计让库的默认操作保持严格，同时给 CLI、Web UI 和批处理程序保留非抛错的控制路径。
+默认操作会直接暴露量纲错误；CLI、Web UI 和批处理程序可以改用 `checked_*` API 自己处理失败路径。
 
 ## 解析文本输入
 

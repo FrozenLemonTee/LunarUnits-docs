@@ -24,7 +24,7 @@ assert_eq(in_meters.value(), 2000.0)
 assert_true(in_meters.dimension().is_same(distance.dimension()))
 ```
 
-这也是 `Quantity` 与“只在变量名里写单位”的区别：单位不是注释，而是参与运行时检查的重要类型信息。
+需要检查数量时，可以分别读取 `value()`、`unit()` 和 `dimension()`。
 
 ## 直接构造和领域构造函数
 
@@ -62,7 +62,7 @@ assert_true(bill.unit().is_compatible(@currency.dollar))
 assert_eq(bill.to(@currency.dollar).value(), 36.0)
 ```
 
-这些规则让本库自动实现了量纲、单位的组合，避免了用户自行处理这些逻辑。
+计算结果仍然是 `Quantity`，可以继续读取数值、单位和量纲，也可以继续参与后续运算。
 
 ## 失败路径
 
@@ -78,8 +78,6 @@ assert_true(length.checked_to(@si.second) is None)
 
 对应的 `to`、`add`、`sub` 会在失败时抛出 `DimensionMismatch`，适合把量纲错误视为程序逻辑错误的内部计算路径。
 
-## 量纲不是全部语义
+## 延伸阅读
 
-量纲检查能阻止“长度加时间”这类错误，但不会替代领域模型。两个值即使量纲相同，也可能承担不同业务角色：管道长度、海拔高度和加工余量都可以是长度；预算金额、单次报价和累计成本都可以是货币。需要表达这类差异时，应通过变量名、函数名、领域对象或更上层 API 说明上下文。
-
-LunarUnits 把角度建模为扩展维度，所以力矩和能量不会在库里被混成同一量纲：力矩可以表达为 `energy / angle`，乘以转角后才得到能量。这个选择也让 Hz 和 rad/s 这类场景可以被明确处理，而不是全部退化成普通无量纲数。更多讨论见 [力矩与能量](../cookbook/torque-vs-energy.md) 和 [角度设计](../design/angle.md)。
+本节只介绍 `Quantity`、单位和量纲的基本用法。更多背景可继续阅读 [运行时量纲检查](../design/runtime-dimensional-checking.md) 与 [角度](../design/angle.md)。
