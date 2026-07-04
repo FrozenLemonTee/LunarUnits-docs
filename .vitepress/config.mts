@@ -22,7 +22,7 @@ export default defineConfig({
         items: [
           { text: "快速开始", link: "/guide/getting-started" },
           { text: "API 文档", link: "https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.7" },
-          { text: "数量与单位", link: "/guide/quantities-and-units" },
+          { text: "三层模型", link: "/guide/quantities-and-units" },
           { text: "换算与格式化", link: "/guide/conversion-and-formatting" },
           { text: "Parser 与 Catalog", link: "/guide/parser-and-catalog" },
           { text: "仿射与对数单位", link: "/guide/affine-and-logarithmic" }
@@ -45,6 +45,7 @@ export default defineConfig({
         text: "设计",
         items: [
           { text: "运行时量纲检查", link: "/design/runtime-dimensional-checking" },
+          { text: "核心三层模型", link: "/design/core-three-layer-model" },
           { text: "角度", link: "/design/angle" },
           { text: "仿射温度", link: "/design/affine-temperature" },
           { text: "对数单位", link: "/design/logarithmic-units" },

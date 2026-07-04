@@ -1,6 +1,6 @@
 ---
 next:
-  text: 数量与单位
+  text: 三层模型
   link: /guide/quantities-and-units
 ---
 
@@ -96,7 +96,7 @@ let g = @parser.parse_quantity(catalog, "9.8 m/s^2")
 
 ## 下一步
 
-- 阅读 [数量与单位](./quantities-and-units.md) 了解核心模型。
+- 阅读 [三层模型](./quantities-and-units.md) 了解核心模型。
 - 阅读 [Parser 与 Catalog](./parser-and-catalog.md) 了解文本输入边界。
 - 阅读 [案例](../cookbook/) 查看更完整的工程计算场景。
 - 阅读 [评审入口](../review/) 快速查看 OSC2026 评审材料。
