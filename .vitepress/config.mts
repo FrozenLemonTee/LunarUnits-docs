@@ -34,7 +34,6 @@ export default defineConfig({
           { text: "概览", link: "/cookbook/" },
           { text: "基础力学与换算", link: "/cookbook/mechanics-and-conversion" },
           { text: "扩展维度", link: "/cookbook/extension-dimensions" },
-          { text: "货币、计数与费率", link: "/cookbook/money-count-rate" },
           { text: "Parser 与 Formatter", link: "/cookbook/parser-and-formatting" },
           { text: "仿射与对数尺度", link: "/cookbook/affine-and-logarithmic" },
           { text: "力矩与能量", link: "/cookbook/torque-vs-energy" },
@@ -46,7 +45,7 @@ export default defineConfig({
         items: [
           { text: "运行时量纲检查", link: "/design/runtime-dimensional-checking" },
           { text: "核心三层模型", link: "/design/core-three-layer-model" },
-          { text: "角度", link: "/design/angle" },
+          { text: "扩展维度", link: "/design/extension-dimensions" },
           { text: "仿射温度", link: "/design/affine-temperature" },
           { text: "对数单位", link: "/design/logarithmic-units" },
           { text: "Catalog 边界", link: "/design/catalog-boundary" }

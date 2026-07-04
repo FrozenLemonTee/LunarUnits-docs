@@ -7,8 +7,7 @@
 | 主题 | 覆盖能力 | 页面 |
 | --- | --- | --- |
 | 基础力学与换算 | 数量构造、单位组合、同量纲换算、量纲错误拒绝 | [基础力学与换算](./mechanics-and-conversion.md) |
-| 扩展维度 | information、angle、frequency 与 angular frequency | [扩展维度](./extension-dimensions.md) |
-| 货币、计数与费率 | 注入汇率、money/time、money/count、count 消去 | [货币、计数与费率](./money-count-rate.md) |
+| 扩展维度 | information、angle、frequency、currency、count 与 rate | [扩展维度](./extension-dimensions.md) |
 | Parser 与 Formatter | Catalog、文本解析、ASCII/SI/LaTeX 输出 | [Parser 与 Formatter](./parser-and-formatting.md) |
 | 仿射与对数尺度 | 温度点/差值、时间点、dB level/gain | [仿射与对数尺度](./affine-and-logarithmic.md) |
 | 力矩与能量 | 显式 angle 维度下的 torque * angle -> energy | [力矩与能量](./torque-vs-energy.md) |
