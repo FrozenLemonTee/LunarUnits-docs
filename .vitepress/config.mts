@@ -55,6 +55,7 @@ export default defineConfig({
         text: "生态",
         items: [
           { text: "概览", link: "/ecosystem/" },
+          { text: "测量不确定度库", link: "/ecosystem/uncertainty" },
           { text: "领域公式库", link: "/ecosystem/formulas-library" },
           { text: "单位转换 CLI/WebUI", link: "/ecosystem/units-converter" },
           { text: "公式计算 CLI/WebUI", link: "/ecosystem/formulas-calculator" }
