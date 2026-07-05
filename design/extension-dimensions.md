@@ -2,6 +2,17 @@
 
 LunarUnits 把 SI 基本量纲作为稳定核心，同时允许角度、计数、货币、信息量等概念以扩展维度进入同一套单位系统。这个设计的目标不是扩大 SI 本身，而是在应用层保留足够的工程语义。
 
+## 数学视角
+
+由前文我们知道，SI 基本量纲为由若干基向量生成的自由系统提供了默认的正交基。扩展维度则是在不改变 SI 基础定义的前提下，加入新的独立基向量。
+
+```text
+SI basis       = {L, M, T, I, Theta, N, J}
+extended basis = SI basis + {Angle, Count, Money, Information}
+```
+
+在这个视角下，`length / time`、`money / count`、`count / time` 都只是不同基向量上的整数线性组合。关键问题不再是“这些概念能不能被数学地压成标量”，而是“在工程计算中是否应该保留它们的独立语义”。LunarUnits 对扩展维度的选择就是在这两者之间偏向保留语义。
+
 ## SI 与扩展维度分包
 
 核心包提供通用的 `Dimension`、`Unit` 和 `Quantity` 运算结构，SI 相关定义集中在 `dimensions/si`、`units/si` 与 `quantities/si` 等包中。长度、质量、时间、电流、温度、物质的量和发光强度构成默认的物理计算基础。

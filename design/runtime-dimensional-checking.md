@@ -8,6 +8,26 @@ LunarUnits 的核心选择是：先把量纲检查做成运行时模型，而不
 
 如果库只提供裸 `Double`，调用方很容易把“数值正确但单位错误”的数据传进公式。这样的错误不会崩溃，却会产生看起来很正常的错误结果。
 
+## 数学视角
+
+量纲检查可以看作在运行时维护一组代数不变量。加法、减法和换算不是对任意两个数量都成立的全局操作，而是只在同一量纲上有定义的部分操作：
+
+```text
+add : Quantity[D] x Quantity[D] -> Quantity[D]
+sub : Quantity[D] x Quantity[D] -> Quantity[D]
+to  : Quantity[D] x Un[D]       -> Quantity[D]
+```
+
+乘法、除法和整数幂则负责生成新的量纲。它们对应量纲向量的加法、减法和倍乘：
+
+```text
+mul : Quantity[D1] x Quantity[D2] -> Quantity[D1 + D2]
+div : Quantity[D1] x Quantity[D2] -> Quantity[D1 - D2]
+pow : Quantity[D]^n               -> Quantity[nD]
+```
+
+因此，运行时检查不是给普通数字额外加一层标签，而是在动态输入进入系统之后，继续保证“哪些运算有定义、结果落在哪个量纲上”这些规则不被破坏。
+
 ## 选择
 
 LunarUnits 让数值携带单位，并在运行时检查加法、减法和换算的量纲兼容性。乘法、除法和整数幂负责组合量纲，而不是把所有计算都退化成普通数字。
