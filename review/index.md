@@ -25,5 +25,7 @@
 ## 公开入口
 
 - GitHub 主仓：<https://github.com/FrozenLemonTee/LunarUnits>
-- API 文档：<https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.7>
+- GitLink 镜像：<https://gitlink.org.cn/FrozenLemonTee/LunarUnits>
+- API 文档：<https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.9>
+- GitHub Actions：<https://github.com/FrozenLemonTee/LunarUnits/actions/workflows/ci.yml>
 - 赛事页面：<https://moonbitlang.github.io/OSC2026/>

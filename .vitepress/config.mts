@@ -13,7 +13,7 @@ export default defineConfig({
       { text: "设计", link: "/design/runtime-dimensional-checking" },
       { text: "生态", link: "/ecosystem/" },
       { text: "评审", link: "/review/" },
-      { text: "API", link: "https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.7" },
+      { text: "API", link: "https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.9" },
       { text: "演示", link: "/demos/" }
     ],
     sidebar: [
@@ -21,7 +21,7 @@ export default defineConfig({
         text: "指南",
         items: [
           { text: "快速开始", link: "/guide/getting-started" },
-          { text: "API 文档", link: "https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.7" },
+          { text: "API 文档", link: "https://mooncakes.io/docs/FrozenLemonTee/LunarUnits@0.1.9" },
           { text: "三层模型", link: "/guide/quantities-and-units" },
           { text: "换算与格式化", link: "/guide/conversion-and-formatting" },
           { text: "Parser 与 Catalog", link: "/guide/parser-and-catalog" },

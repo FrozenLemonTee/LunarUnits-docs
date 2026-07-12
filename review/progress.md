@@ -4,13 +4,14 @@ LunarUnits 已完成核心库发布，并围绕单位换算和公式计算形成
 
 | 项目 | 版本 | 状态 |
 | --- | --- | --- |
-| LunarUnits | 0.1.6 | 核心库已发布。 |
+| LunarUnits | 0.1.9 | 核心库已发布。 |
 | LunarFormulas | 0.3.1 | 公式库已发布。 |
+| LunarUncertainty | 0.1.1 | 测量不确定度库已发布。 |
 | units-converter | 0.1.0 | CLI 已发布。 |
 | formulas-calculator | 0.1.2 | CLI 已发布。 |
-| units-converter-web | 0.1.0 | Web UI 已完成本地版本。 |
-| formulas-calculator-web | 0.1.2 | Web UI 已完成本地版本。 |
-| LunarUnits-docs | 文档站 | 中文文档站已建立。 |
+| units-converter-web | 0.1.0 | Web UI 已部署在线演示。 |
+| formulas-calculator-web | 0.1.2 | Web UI 已部署在线演示。 |
+| LunarUnits-docs | 文档站 | 中文文档站已部署。 |
 
 ## 包内容
 
