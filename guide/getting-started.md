@@ -16,7 +16,7 @@ next:
 moon add FrozenLemonTee/LunarUnits
 ```
 
-在 `moon.pkg` 中导入需要的包。实际项目可以只导入自己用到的领域包：
+在通过 `moon new` 创建的标准项目中，将以下包加入 `cmd/main/moon.pkg`，并保留其中现有的 `options("is-main": true)` 配置：
 
 ```text
 import {
@@ -28,6 +28,41 @@ import {
   "FrozenLemonTee/LunarUnits/quantities/qgeometry",
   "FrozenLemonTee/LunarUnits/quantities/qmechanics",
 }
+```
+
+将 `cmd/main/main.mbt` 替换为以下完整示例：
+
+```moonbit
+fn main {
+  let distance = @qgeometry.meters(100.0)
+  let time = @quantity.Quantity::new(10.0, @si.second)
+
+  let speed = distance / time
+  println(@quantity.format_quantity(speed))
+
+  let in_meters = @qgeometry
+    .kilometers(2.0)
+    .checked_to(@si.meter)
+    .unwrap()
+  println(@quantity.format_quantity(in_meters))
+
+  let catalog = @preset.all()
+  let gravity = @parser
+    .parse_quantity_opt(catalog, "9.8 m/s^2")
+    .unwrap()
+  println(@quantity.format_quantity(gravity))
+
+  println(distance.checked_add(time) is None)
+}
+```
+
+运行 `moon run cmd/main` 会得到：
+
+```text
+10 m/s
+2000 m
+9.8 m/s^2
+true
 ```
 
 ## 构造数量
@@ -59,7 +94,7 @@ let force_text = @quantity.format_quantity(force) // "6 kg*m/s^2"
 
 ```text
 let distance = @qgeometry.kilometers(2.0)
-let in_meters = distance.to(@si.meter)
+let in_meters = distance.checked_to(@si.meter).unwrap()
 // in_meters.value() == 2000.0
 ```
 
@@ -67,7 +102,9 @@ let in_meters = distance.to(@si.meter)
 
 ```text
 let load = @qmechanics.newtons(6.0)
-let coherent = load.to(@si.kilogram * @si.meter / @si.second.pow(2))
+let coherent = load
+  .checked_to(@si.kilogram * @si.meter / @si.second.pow(2))
+  .unwrap()
 ```
 
 ## 处理量纲错误
@@ -80,7 +117,7 @@ let duration = @quantity.Quantity::new(1.0, @si.second)
 let maybe_total = length.checked_add(duration) // None
 ```
 
-默认操作会直接暴露量纲错误；CLI、Web UI 和批处理程序可以改用 `checked_*` API 自己处理失败路径。
+严格版本的 `add`、`sub`、`to` 会直接暴露量纲错误；请在能够处理或继续传播错误的函数中使用它们。`main`、CLI、Web UI 和批处理程序可以改用 `checked_*` API 自己处理失败路径。
 
 ## 解析文本输入
 
@@ -88,11 +125,11 @@ let maybe_total = length.checked_add(duration) // None
 
 ```text
 let catalog = @preset.all()
-let accel_unit = @parser.parse_unit(catalog, "m/s^2")
-let g = @parser.parse_quantity(catalog, "9.8 m/s^2")
+let accel_unit = @parser.parse_unit_opt(catalog, "m/s^2").unwrap()
+let g = @parser.parse_quantity_opt(catalog, "9.8 m/s^2").unwrap()
 ```
 
-解析失败不会产生未分类的 panic。可以使用 `parse_unit_opt`、`parse_quantity_opt` 这类接口让上层应用返回更友好的错误提示。
+严格版本的 `parse_unit`、`parse_quantity` 会抛出分类明确的 `ParseError`。在非抛错入口中，可以使用 `parse_unit_opt`、`parse_quantity_opt` 让上层应用返回更友好的错误提示。
 
 ## 下一步
 

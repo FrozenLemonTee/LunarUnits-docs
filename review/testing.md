@@ -6,10 +6,15 @@ LunarUnits 使用 MoonBit 测试和可运行文档示例来稳定公开行为。
 
 ```bash
 cd LunarUnits
-moon test
+moon check --deny-warn --target all
+moon info
+git diff --exit-code
+moon fmt
+git diff --exit-code
+moon test --deny-warn --target all
 ```
 
-覆盖范围包括基础符号代数、量纲比较、单位组合、换算、格式化、`Quantity` 运算、扩展维度、parser、catalog、affine、logarithmic 和 examples。
+接口生成和格式化都必须保持工作树无差异。CI 在 Ubuntu 与 Windows 上执行这些门禁；测试覆盖 wasm、wasm-gc、JavaScript 和 native target。覆盖范围包括基础符号代数、量纲比较、单位组合、换算、格式化、`Quantity` 运算、扩展维度、parser、catalog、affine、logarithmic 和 examples。
 
 ## 公式库与应用层
 
